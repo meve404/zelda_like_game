@@ -4,6 +4,7 @@ from tile import Tile
 from player import Player
 from support import import_csv_layout, import_folder
 from random import choice
+from weapon import Weapon
 from debug import debug
 
 class Level:
@@ -54,8 +55,11 @@ class Level:
         #             Tile((x,y), [self.visible_sprites, self.obstacles_sprites])
         #         elif col == 'p': # Assigns a sprite to 'p'
         #             self.player = Player((x,y), [self.visible_sprites], self.obstacles_sprites)
-        self.player = Player((2000, 1430), [self.visible_sprites], self.obstacles_sprites)
+        self.player = Player((2000, 1430), [self.visible_sprites], self.obstacles_sprites, self.create_attack) # Passes the method to the Player class
     
+    def create_attack(self):
+        Weapon(self.player, [self.visible_sprites])
+
     def run(self):
         # update and draw the game
         self.visible_sprites.custom_draw(self.player)
