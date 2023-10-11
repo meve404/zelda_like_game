@@ -28,7 +28,13 @@ weapon_data = {
     'lance': {'cooldown': 400, 'damage': 30,'graphic':'graphics/weapons/lance/full.png'},
     'axe': {'cooldown': 300, 'damage': 20, 'graphic':'graphics/weapons/axe/full.png'},
     'rapier':{'cooldown': 50, 'damage': 8, 'graphic':'graphics/weapons/rapier/full.png'},
-    'sai':{'cooldown': 80, 'damage': 10, 'graphic':'graphics/weapons/sai/full.png'}}
+    'sai':{'cooldown': 80, 'damage': 10, 'graphic':'graphics/weapons/sai/full.png'}
+}
+
+magic_data = {
+    'flame': {'strength': 5,'cost': 20,'graphic':'graphics/particles/flame/fire.png'},
+    'heal' : {'strength': 20,'cost': 10,'graphic':'graphics/particles/heal/heal.png'}
+}
 
 WORLD_MAP = [
 ['x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x'],

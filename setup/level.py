@@ -62,10 +62,15 @@ class Level:
         #             Tile((x,y), [self.visible_sprites, self.obstacles_sprites])
         #         elif col == 'p': # Assigns a sprite to 'p'
         #             self.player = Player((x,y), [self.visible_sprites], self.obstacles_sprites)
-        self.player = Player((2000, 1430), [self.visible_sprites], self.obstacles_sprites, self.create_attack, self.destroy_attack) # Passes the method to the Player class
+        self.player = Player((2000, 1430), [self.visible_sprites], 
+                             self.obstacles_sprites, self.create_attack, 
+                             self.destroy_attack, self.create_magic) # Passes the method to the Player class
     
     def create_attack(self):
         self.current_attack = Weapon(self.player, [self.visible_sprites])
+
+    def create_magic(self, style, strenght, cost):
+        print(style, '\n', strenght, '\n', cost)
 
     def destroy_attack(self):
         if self.current_attack:
