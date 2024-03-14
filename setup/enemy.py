@@ -5,7 +5,7 @@ from entity import Entity
 from support import import_folder
 
 class Enemy(Entity):
-    def __init__(self, monster_name, position, groups, obstacle_sprites, damage_player):
+    def __init__(self, monster_name, position, groups, obstacle_sprites, damage_player, trigger_death_particles):
 
         # general setup
         super().__init__(groups)
@@ -38,6 +38,7 @@ class Enemy(Entity):
         self.attack_time = None
         self.attack_cooldown = 400
         self.damage_player = damage_player
+        self.trigger_death_particles = trigger_death_particles
 
         # invicibility timer
         self.vulnerable = True
@@ -106,7 +107,6 @@ class Enemy(Entity):
         else:
             self.image.set_alpha(255) # sets the transparency of the layer
             
-
     def cooldowns(self):
         current_time = pygame.time.get_ticks()
         if not self.can_attack:
@@ -131,6 +131,7 @@ class Enemy(Entity):
     def check_death(self):
         if self.health <= 0:
             self.kill()
+            self.trigger_death_particles(self.rect.center, self.monster_name)
 
     def hit_reaction(self):
         if not self.vulnerable:
